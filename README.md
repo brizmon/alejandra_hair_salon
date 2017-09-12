@@ -1,4 +1,4 @@
-# Proposal - ‘Alejandra Hair Salon'
+# Proposal - Alejandra Hair Salon
 ‘Alejandra Hair Salon’ is a web app for a hair salon located at the heart of little Italy in the Bronx. This web app aims to serve as a virtual storefront to brand the business to become recognizable, differentiated, and consistent among other competitors in the area. The app will have a reservation system that will allow customers to book appointments. 
 
 # User Stories
