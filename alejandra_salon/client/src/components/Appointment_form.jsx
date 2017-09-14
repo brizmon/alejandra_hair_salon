@@ -1,25 +1,33 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 
 const AppointmentForm = props => {
     return(
-        <form className="appt_form">
-            <input
-              type="text"
-              placeholder="Service"
-              onChange={props.handleInputChange}
-              />
-              <input 
-                type="text"
-                placeholder="Date and Time"
-                onChange={props.handleInputChange}
-              />
-              <select>
-                  <option value="Alexa">Alexa</option>
-                  <option value="Oty">Oty</option>
-                  <option value="Gloria">Gloria</option>
-              </select>
-              <input type="submit" value="Log in!" />
-        </form>
+        <div className="appt_form">
+            <form onSubmit={props.handleApptSubmit}>
+                <input
+                    type="text"
+                    name="service"
+                    placeholder="Service"
+                    value={props.service}
+                    onChange={props.handleInputChange}
+                />
+                <input 
+                    type="text"
+                    name="appt_time"
+                    placeholder="Date and Time"
+                    value={props.appt_time}
+                    onChange={props.handleInputChange}
+                />
+                <select>
+                    <option value="Alexa">Alexa</option>
+                    <option value="Oty">Oty</option>
+                    <option value="Gloria">Gloria</option>
+                </select>
+                <input type="submit" value="Log in!" />
+            </form>
+            {(props.shouldFireRedirect) ? <Redirect to ="/" />: ''}
+        </div>
     )
 }
 

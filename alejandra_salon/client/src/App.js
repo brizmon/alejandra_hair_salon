@@ -15,11 +15,48 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      apptService: '',
-      apptTime: '',
-      apptHairStylist: ''
+      shouldFireRedirect: false,
+      service: '',
+      appt_time: '',
+      hairStylist: ''
     };
   };
+
+  handleInputChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleApptSubmit = (e) => {
+    e.preventDefault();
+    axios('/appointment', {
+      method: 'POST',
+      data: {
+        appointment: {
+          service: this.state.service,
+          appt_time: this.state.appt_time,
+          hairstylist: this.state.hairStylist
+        }
+      }
+    }).then(res => {
+      this.setState({
+        shouldFireRedirect: true,
+      });
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
+  resetFireRedirect = () => {
+    if(this.state.shouldFireRedirect) {
+      this.setState({
+        shouldFireRedirect: false,
+      })
+    }
+  }
 
 
 
