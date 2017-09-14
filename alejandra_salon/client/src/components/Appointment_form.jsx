@@ -24,7 +24,7 @@ const AppointmentForm = props => {
                     <option value="Oty">Oty</option>
                     <option value="Gloria">Gloria</option>
                 </select>
-                <input type="submit" value="Log in!" />
+                <input type="submit" value="Book" />
             </form>
             {(props.shouldFireRedirect) ? <Redirect to ="/" />: ''}
         </div>

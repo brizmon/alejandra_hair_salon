@@ -8,6 +8,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import AppointmentForm from './components/Appointment_form';
 
 import axios from 'axios';
 
@@ -23,16 +24,22 @@ class App extends Component {
   };
 
   handleInputChange = (e) => {
+    console.log("it works");
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
       [name]: value,
     });
+
+    console.log(this.state.service);
+    console.log(this.state.appt_time);
+    console.log(this.state.hairStylist);
   };
 
   handleApptSubmit = (e) => {
     e.preventDefault();
-    axios('/appointment', {
+    console.log("in axios call")
+    axios('/appointments', {
       method: 'POST',
       data: {
         appointment: {
@@ -42,6 +49,7 @@ class App extends Component {
         }
       }
     }).then(res => {
+      console.log("in axios response")
       this.setState({
         shouldFireRedirect: true,
       });
@@ -71,7 +79,19 @@ class App extends Component {
         <div className="App">
           <div className="main">
             <Route exact path="/" component={Home} />
-            <Route exact path="about" component={About} />
+            <Route
+            exact
+            path="/book"
+            render={ () => 
+                <AppointmentForm
+                  service={this.state.service}
+                  appt_time={this.state.appt_time}
+                  hairStylist={this.state.hairStylist}
+                  handleInputChange={this.handleInputChange}
+                  handleApptSubmit={this.handleApptSubmit}
+                  shouldFireRedirect={this.state.shouldFireRedirect}
+            />} />
+            <Route exact path="/about" component={About} />
           </div>
         </div>
       </Router>
