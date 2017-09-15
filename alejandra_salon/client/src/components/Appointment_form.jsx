@@ -19,7 +19,7 @@ const AppointmentForm = props => {
                     value={props.appt_time}
                     onChange={props.handleInputChange}
                 />
-                <select value={props.hairstylist} onChange={props.handleInputChange}>
+                <select value={props.hairstylist} onChange={props.handleChange}>
                     <option value="alexa">Alexa</option>
                     <option value="oty">Oty</option>
                     <option value="gloria">Gloria</option>

@@ -19,7 +19,7 @@ class App extends Component {
       shouldFireRedirect: false,
       service: '',
       appt_time: '',
-      hairStylist: ''
+      hairstylist: 'oty'
     };
   };
 
@@ -33,8 +33,15 @@ class App extends Component {
 
     console.log(this.state.service);
     console.log(this.state.appt_time);
-    console.log(this.state.hairStylist);
+    console.log(this.state.hairstylist);
   };
+
+
+  handleChange = (e) => {
+    this.setState({
+      hairstylist: e.target.value
+    });
+  }
 
   handleApptSubmit = (e) => {
     e.preventDefault();
@@ -45,7 +52,7 @@ class App extends Component {
         appointment: {
           service: this.state.service,
           appt_time: this.state.appt_time,
-          hairstylist: this.state.hairStylist
+          hairstylist: this.state.hairstylist
         }
       }
     }).then(res => {
@@ -86,8 +93,9 @@ class App extends Component {
                 <AppointmentForm
                   service={this.state.service}
                   appt_time={this.state.appt_time}
-                  hairStylist={this.state.hairStylist}
+                  hairstylist={this.state.hairstylist}
                   handleInputChange={this.handleInputChange}
+                  handleChange={this.handleChange}
                   handleApptSubmit={this.handleApptSubmit}
                   shouldFireRedirect={this.state.shouldFireRedirect}
             />} />
