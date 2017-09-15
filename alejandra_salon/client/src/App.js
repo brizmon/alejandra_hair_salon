@@ -9,6 +9,8 @@ import About from './components/About';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AppointmentForm from './components/Appointment_form';
+import Appointment from './components/Appointment';
+import AppointmentList from './components/Appointment_list';
 
 import axios from 'axios';
 
@@ -100,6 +102,7 @@ class App extends Component {
                   shouldFireRedirect={this.state.shouldFireRedirect}
             />} />
             <Route exact path="/about" component={About} />
+            <Route exact path="/appointments" component={AppointmentList} />
           </div>
         </div>
       </Router>

@@ -1,11 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 
-const Appointment = () => {
+const Appointment = (props) => {
     return (
         <div className="appointment-container">
-            <h1>These are the appointments</h1>
+            <h1>{props.appointment.service}</h1>
+            <h1>{props.appointment.appt_time}</h1>
+            <h1>{props.appointment.hairstylist}</h1>
         </div>
     )
 }
