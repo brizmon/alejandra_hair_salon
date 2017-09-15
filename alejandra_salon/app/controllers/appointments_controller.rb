@@ -10,7 +10,16 @@ class AppointmentsController < ApplicationController
     end 
 
     def create 
+        puts "we are in the rb backend create"
         appointment = Appointment.new(appointment_params)
+        if appointment.save
+            render json: {
+                message: 'ok',
+                appointment: appointment,
+            }
+        else 
+            render json: {message: 'Appointment not booked'}
+        end
     end 
 
     private
