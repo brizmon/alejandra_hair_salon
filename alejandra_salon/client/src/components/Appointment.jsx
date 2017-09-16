@@ -54,7 +54,6 @@ class Appointment extends Component{
     render(){
         return (
             <div className="appointment-single">
-                {/* {(this.props.shouldFireRedirect) ? <Redirect to={`/appointments`} />: ''} */}
                 {(this.state.appointmentDataLoaded) ? this.showAppointment() : <p>...Loading</p>}
             </div>
         )

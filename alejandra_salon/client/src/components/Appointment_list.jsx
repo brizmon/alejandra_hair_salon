@@ -31,6 +31,10 @@ class AppointmentList extends Component {
         this.props.grabApptId(id)
     }
 
+    handleDelete = (id) => {
+        console.log('delete')
+        axios.delete(`/appointments/${id}`)
+    }
     showAppointment() {
         return this.state.appointmentData.map((appointment, i) => {
             return (
@@ -40,7 +44,7 @@ class AppointmentList extends Component {
                     <h1>{appointment.hairstylist}</h1>
                     <div className="appointment-buttons">
                         <button>Edit</button>
-                        <button>Delete</button>
+                       <button onClick={()=>this.handleDelete(appointment.id)}>Delete</button>
                        <button onClick={()=>this.grabApptId(appointment.id)}>View</button>
                     </div>
                 </div>
