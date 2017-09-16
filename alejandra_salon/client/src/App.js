@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './react-date-time.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 import moment from 'moment';
@@ -24,7 +24,8 @@ class App extends Component {
       shouldFireRedirect: false,
       service: '',
       appt_time: '',
-      hairstylist: 'oty'
+      hairstylist: 'oty',
+      appt_id: undefined,
     };
   };
 
@@ -80,6 +81,15 @@ class App extends Component {
       console.log(err);
     });
   }
+  
+  grabApptId=(id)=>{
+    console.log(id)
+    this.setState({
+      appt_id: id,
+      shouldFireRedirect: true,
+    })
+    this.resetFireRedirect()
+  }
 
   resetFireRedirect = () => {
     if(this.state.shouldFireRedirect) {
@@ -101,6 +111,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="main">
+          <Switch>
             <Route exact path="/" component={Home} />
             <Route
             exact
@@ -111,13 +122,31 @@ class App extends Component {
                   appt_time={this.state.appt_time}
                   hairstylist={this.state.hairstylist}
                   handleInputChange={this.handleInputChange}
-                  handleChange={this.handleChange}
                   setApptTime={this.setApptTime}
                   handleApptSubmit={this.handleApptSubmit}
                   shouldFireRedirect={this.state.shouldFireRedirect}
             />} />
+            <Route
+            exact
+            path="/appointments"
+            render={ () => 
+                <AppointmentList
+                  grabApptId={this.grabApptId}
+                  appt_id={this.state.appt_id}
+                  shouldFireRedirect={this.state.shouldFireRedirect}
+            />} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/appointments" component={AppointmentList} />
+            {/* <Route exact path="/appointments" component={AppointmentList} /> */}
+            <Route
+              exact 
+              path="/appointments/:id"
+              render={ () =>
+              <Appointment
+                appt_id={this.state.appt_id}
+                handleDelete={this.handleDelete}
+                shouldFireRedirect={this.state.shouldFireRedirect}
+              />}/>
+          </Switch>
           </div>
         </div>
       </Router>

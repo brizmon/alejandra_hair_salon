@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Appointment from './Appointment';
-
+import { Redirect } from 'react-router';
 import axios from 'axios';
 import moment from 'moment';
 
@@ -26,17 +26,32 @@ class AppointmentList extends Component {
           });
     }
 
+    grabApptId=(id)=>{
+        console.log(id)
+        this.props.grabApptId(id)
+    }
+
     showAppointment() {
-        return this.state.appointmentData.map(appointment => {
+        return this.state.appointmentData.map((appointment, i) => {
             return (
-                <Appointment type="list" appointment={appointment} key={appointment.id} />
+                <div className="appointment" key={i}>
+                    <h1>{appointment.service}</h1>
+                    <h1>{moment(appointment.appt_time).format('MMMM Do YYYY, h:mm:ss a')}</h1>
+                    <h1>{appointment.hairstylist}</h1>
+                    <div className="appointment-buttons">
+                        <button>Edit</button>
+                        <button>Delete</button>
+                       <button onClick={()=>this.grabApptId(appointment.id)}>View</button>
+                    </div>
+                </div>
             )
         })
     }
-
+    
     render(){
         return (
             <div className="appointment-list">
+            {(this.props.shouldFireRedirect) ? <Redirect to={`/appointments/${this.props.appt_id}`} />: ''}
                 {(this.state.appointmentDataLoaded) ? this.showAppointment() : <p>...Loading</p>}
             </div>
         )
