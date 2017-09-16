@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Appointment from './Appointment';
 
 import axios from 'axios';
+import moment from 'moment';
 
 class AppointmentList extends Component {
     constructor(){
