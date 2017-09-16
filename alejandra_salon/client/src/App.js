@@ -41,28 +41,21 @@ class App extends Component {
     console.log(this.state.hairstylist);
   };
 
-
-  handleChange = (e) => {
-    this.setState({
-      hairstylist: e.target.value
-    });
-  }
-
   inputProps = () => {
     let inputProps = {
       name: 'appt_time'
     }
   }
 
-  onUserInput = () => {
-
-  }
-
   setApptTime = (e) => {
+    console.log(e);
     let name = 'appt_time';
     let obj = {};
     if(obj[name] = e.toDate()) {
-      this.props.onUserInput(obj);
+      // this.onUserInput(obj);
+      this.setState({
+        appt_time: obj.appt_time
+      })
     }
   }
 
@@ -119,6 +112,7 @@ class App extends Component {
                   hairstylist={this.state.hairstylist}
                   handleInputChange={this.handleInputChange}
                   handleChange={this.handleChange}
+                  setApptTime={this.setApptTime}
                   handleApptSubmit={this.handleApptSubmit}
                   shouldFireRedirect={this.state.shouldFireRedirect}
             />} />
