@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './react-date-time.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import axios from 'axios';
 import { Redirect } from 'react-router';
+import moment from 'moment';
 
 import Home from './components/Home';
 import About from './components/About';
@@ -12,7 +15,7 @@ import AppointmentForm from './components/Appointment_form';
 import Appointment from './components/Appointment';
 import AppointmentList from './components/Appointment_list';
 
-import axios from 'axios';
+
 
 class App extends Component {
   constructor(){
