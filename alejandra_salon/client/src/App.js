@@ -48,6 +48,24 @@ class App extends Component {
     });
   }
 
+  inputProps = () => {
+    let inputProps = {
+      name: 'appt_time'
+    }
+  }
+
+  onUserInput = () => {
+
+  }
+
+  setApptTime = (e) => {
+    let name = 'appt_time';
+    let obj = {};
+    if(obj[name] = e.toDate()) {
+      this.props.onUserInput(obj);
+    }
+  }
+
   handleApptSubmit = (e) => {
     e.preventDefault();
     console.log("in axios call")
