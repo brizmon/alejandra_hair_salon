@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
     def index 
         appointments = Appointment.all
-        render json: { appointments: appointments.map(&:serialize) }
+        render json: { appointments: appointments.map(&:serializable_hash) }
     end
 
     def show 
