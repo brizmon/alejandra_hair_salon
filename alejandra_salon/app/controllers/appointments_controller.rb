@@ -22,6 +22,19 @@ class AppointmentsController < ApplicationController
         end
     end 
 
+    def update 
+        appointment = params['appointment']
+        Appointment.update(params[:id],
+                    service: appointment['service'],
+                    appt_time: appointment['appt_time'],
+                    hairstylist: appointment['hairstylist']
+                    )
+    end
+
+    def destroy
+        Appointment.destroy(params['id'])
+    end
+
     private
     def appointment_params
         params.require(:appointment).permit(:service, :appt_time, :hairstylist)
