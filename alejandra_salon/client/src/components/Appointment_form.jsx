@@ -14,15 +14,15 @@ const AppointmentForm = props => {
                     value={props.service}
                     onChange={props.handleInputChange}
                 />
-                <input 
+                {/* <input 
                     type="text"
                     name="appt_time"
                     placeholder="Date and Time"
                     value={props.appt_time}
                     onChange={props.handleInputChange}
-                />
+                /> */}
 
-                <Datetime />
+                <Datetime input={false} open={true} inputProps={props.inputProps} value={props.appt_time} onChange={props.setApptTime}/>
 
                 <select value={props.hairstylist} onChange={props.handleChange}>
                     <option value="alexa">Alexa</option>
