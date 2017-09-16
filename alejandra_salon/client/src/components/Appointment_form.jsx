@@ -24,7 +24,7 @@ const AppointmentForm = props => {
 
                 <Datetime input={false} open={true} inputProps={props.inputProps} value={props.appt_time} onChange={props.setApptTime}/>
 
-                <select value={props.hairstylist} onChange={props.handleChange}>
+                <select name="hairstylist" value={props.hairstylist} onChange={props.handleInputChange}>
                     <option value="alexa">Alexa</option>
                     <option value="oty">Oty</option>
                     <option value="gloria">Gloria</option>
