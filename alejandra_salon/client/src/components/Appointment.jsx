@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import { Redirect } from 'react-router';
+import * as Datetime from 'react-datetime';
 
 class Appointment extends Component{
     constructor(){
@@ -33,6 +34,21 @@ class Appointment extends Component{
             null;
     }
 
+    handleEdit = (e) =>{
+        e.preventDefault();
+        axios.put(`/appointments/${this.state.appt_id}`, {
+        data: {
+            appointment: {
+                service: this.props.service,
+                appt_time: this.props.appt_time,
+                hairstylist: this.props.hairstylist
+            }
+          }
+        },this.state.appt_id)
+        .then(res=>(console.log(res)))
+        .catch(res=>(console.log(res)))
+    }
+
     handleDelete = () => {
         console.log('delete')
         axios.delete(`/appointments/${this.state.appt_id}`)
@@ -44,9 +60,28 @@ class Appointment extends Component{
                 <h1>{moment(this.state.appointmentData.appt_time).format('MMMM Do YYYY, h:mm:ss a')}</h1>
                 <h1>{this.state.appointmentData.hairstylist}</h1>
                 <div className="appointment-buttons">
-                    <button>Edit</button>
+                    {/* <button>Edit</button> */}
                     <button onClick={this.handleDelete}>Delete</button>
                 </div>
+
+                <h1>Edit Appointment</h1>
+                <form onSubmit={this.handleEdit}>
+                <input
+                    type="text"
+                    name="service"
+                    placeholder="Service"
+                    value={this.props.service}
+                    onChange={this.props.handleInputChange}
+                />
+                <Datetime input={false} open={true} inputProps={this.props.inputProps} value={this.props.appt_time} onChange={this.props.setApptTime}/>
+
+                <select name="hairstylist" value={this.props.hairstylist} onChange={this.props.handleInputChange}>
+                    <option value="alexa">Alexa</option>
+                    <option value="oty">Oty</option>
+                    <option value="gloria">Gloria</option>
+                </select>
+                <input type="submit" value="Save Edit" />
+                </form>
             </div>
         )
     }
