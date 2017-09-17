@@ -43,7 +43,7 @@ class AppointmentList extends Component {
                     <h1>{moment(appointment.appt_time).format('MMMM Do YYYY, h:mm:ss a')}</h1>
                     <h1>{appointment.hairstylist}</h1>
                     <div className="appointment-buttons">
-                        <button>Edit</button>
+                        {/* <button>Edit</button> */}
                        <button onClick={()=>this.handleDelete(appointment.id)}>Delete</button>
                        <button onClick={()=>this.grabApptId(appointment.id)}>View</button>
                     </div>

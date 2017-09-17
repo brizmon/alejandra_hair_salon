@@ -81,7 +81,7 @@ class App extends Component {
       console.log(err);
     });
   }
-  
+
   grabApptId=(id)=>{
     console.log(id)
     this.setState({
@@ -142,6 +142,12 @@ class App extends Component {
               path="/appointments/:id"
               render={ () =>
               <Appointment
+                service={this.state.service}
+                appt_time={this.state.appt_time}
+                hairstylist={this.state.hairstylist}
+                handleInputChange={this.handleInputChange}
+                setApptTime={this.setApptTime}
+                handleApptSubmit={this.handleApptSubmit}
                 appt_id={this.state.appt_id}
                 handleDelete={this.handleDelete}
                 shouldFireRedirect={this.state.shouldFireRedirect}
