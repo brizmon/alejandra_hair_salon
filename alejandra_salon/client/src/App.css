@@ -33,6 +33,12 @@ h1 {
   font-family: 'proxima_nova_ltsemibold';
   font-size: 23px;
 }
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: 'proxima_novaregular';
+  font-size: 17px;
+}
 input, select, textarea{
   color: white;
   font-size: 35px !important;
@@ -45,6 +51,9 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
 }
 input:-webkit-autofill {
   -webkit-box-shadow: inset 0 0 0px 9999px white !important;
+}
+.center-align {
+  padding-top: 40px;
 }
 /******************** NAV ********************/
 nav {
@@ -103,6 +112,18 @@ nav ul li a:hover {
 
 .pick-hairstylist {
   display: block;
+}
+
+select.browser-default{
+  margin: 0 auto;
+  font-size: 25px !important;
+  width: 39%;
+  height: 2rem;
+  color: black;
+  margin-bottom: 20px;
+  font-family: 'proxima_nova_ltsemibold';
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 /******************** SERVICES ********************/
