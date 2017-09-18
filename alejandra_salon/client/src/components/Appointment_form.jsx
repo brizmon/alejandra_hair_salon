@@ -1,23 +1,25 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Redirect } from 'react-router';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
 import * as Datetime from 'react-datetime';
 
-const AppointmentForm = props => {
+class AppointmentForm extends Component {
+
+    render(){
     return(
         <div>
             <div className="container">
                 <div className="row">
-                    <form onSubmit={props.handleApptSubmit} className="col s12">
+                    <form onSubmit={this.props.handleApptSubmit} className="col s12">
                         <div className="row valign-wrapper">
                             <div className="input-field col s6 offset-s3 valign">
                                 <input
                                     type="text"
                                     name="service"
                                     placeholder="Service"
-                                    value={props.service}
-                                    onChange={props.handleInputChange}
+                                    value={this.props.service}
+                                    onChange={this.props.handleInputChange}
                                 />
                             </div>
                         </div>
@@ -25,13 +27,13 @@ const AppointmentForm = props => {
                             type="text"
                             name="appt_time"
                             placeholder="Date and Time"
-                            value={props.appt_time}
-                            onChange={props.handleInputChange}
+                            value={this.props.appt_time}
+                            onChange={this.props.handleInputChange}
                         /> */}
 
-                        <Datetime input={false} open={true} inputProps={props.inputProps} value={props.appt_time} onChange={props.setApptTime}/>
+                        <Datetime input={false} open={true} inputProps={this.props.inputProps} value={this.props.appt_time} onChange={this.props.setApptTime}/>
                             
-                                <select className="pick-hairstylist" name="hairstylist" value={props.hairstylist} onChange={props.handleInputChange}>
+                                <select className="pick-hairstylist" name="hairstylist" value={this.props.hairstylist} onChange={this.props.handleInputChange}>
                                     <option value="alexa">Alexa</option>
                                     <option value="oty">Oty</option>
                                     <option value="gloria">Gloria</option>
@@ -49,11 +51,10 @@ const AppointmentForm = props => {
                         
                         <input type="submit" value="Book" />
                     </form>
-                    {(props.shouldFireRedirect) ? <Redirect to ="/" />: ''}
                 </div>
             </div>
         </div>
-    )
+    )}
 }
 
 export default AppointmentForm;

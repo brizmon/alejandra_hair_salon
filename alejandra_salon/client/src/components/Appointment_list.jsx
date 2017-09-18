@@ -10,30 +10,40 @@ class AppointmentList extends Component {
         this.state = {
             appointmentData: null,
             appointmentDataLoaded: false,
+            redirect: false,
+            currentPage: 'appointments'
         }
     }
 
     componentDidMount() {
         console.log("in axios call")
         axios('/appointments', {method: 'GET'})
-          .then(res => {
-              console.log(res.data.appointments);
-              this.setState({
-                  appointmentData: res.data.appointments,
-                  appointmentDataLoaded: true,
-              })
-              console.log("in axios response")
-          });
+        .then(res => {
+            console.log(res.data.appointments);
+            this.setState({
+                appointmentData: res.data.appointments,
+                appointmentDataLoaded: true,
+            })
+            console.log("in axios response")
+        });
     }
 
     grabApptId=(id)=>{
         console.log(id)
         this.props.grabApptId(id)
+        this.setState({
+            redirect: true,
+            currentPage: `appointments/${id}`
+        })
     }
 
     handleDelete = (id) => {
         console.log('delete')
         axios.delete(`/appointments/${id}`)
+        this.setState({
+            currentPage: 'book',
+            redirect: true,
+        })
     }
     showAppointment() {
             return this.state.appointmentData.map((appointment, i) => {
@@ -60,7 +70,7 @@ class AppointmentList extends Component {
     render(){
         return (
             <div className="appointment-list">
-            {(this.props.shouldFireRedirect) ? <Redirect to={`/appointments/${this.props.appt_id}`} />: ''}
+                {this.state.redirect ? (<Redirect to={`/${this.state.currentPage}`}/>) : null} {/*handles the redirects */}
                 {(this.state.appointmentDataLoaded) ? this.showAppointment() : <p>...Loading</p>}
             </div>
         )

@@ -12,6 +12,8 @@ class Appointment extends Component{
             appointmentData: null,
             appointmentDataLoaded: false,
             appt_id: undefined,
+            redirect: false,
+            currentPage: 'appointments',
         }
     }
 
@@ -30,8 +32,11 @@ class Appointment extends Component{
                   })
                   console.log("in axios response")
             });
-        }else 
-            null;
+        }else {
+            this.setState({
+                redirect: true,
+            })
+        }
     }
 
     handleEdit = (e) =>{
@@ -44,7 +49,7 @@ class Appointment extends Component{
                 hairstylist: this.props.hairstylist
             }
           }
-        },this.state.appt_id)
+        })
         .then(res=>(console.log(res)))
         .catch(res=>(console.log(res)))
     }
@@ -52,6 +57,10 @@ class Appointment extends Component{
     handleDelete = () => {
         console.log('delete')
         axios.delete(`/appointments/${this.state.appt_id}`)
+        this.setState({
+            currentPage: 'appointments',
+            redirect: true,
+        })
     }
     showAppointment(){
         return(
@@ -91,6 +100,7 @@ class Appointment extends Component{
     render(){
         return (
             <div className="appointment-single">
+                {this.state.redirect ? (<Redirect to={`/${this.state.currentPage}`}/>) : null} {/*handles the redirects */}
                 {(this.state.appointmentDataLoaded) ? this.showAppointment() : <p>...Loading</p>}
             </div>
         )
