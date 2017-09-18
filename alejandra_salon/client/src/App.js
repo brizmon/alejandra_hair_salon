@@ -113,11 +113,12 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="main">
+          <Header />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route
             exact
-            path="/appointments"
+            path="/book"
             render={ () => 
                 <AppointmentForm
                   service={this.state.service}
@@ -130,7 +131,7 @@ class App extends Component {
             />} />
             <Route
             exact
-            path="/appointments-list"
+            path="/appointments"
             render={ () => 
                 <AppointmentList
                   grabApptId={this.grabApptId}
@@ -140,7 +141,7 @@ class App extends Component {
             {/* <Route exact path="/appointments" component={AppointmentList} /> */}
             <Route
               exact 
-              path="/appointments-list/:id"
+              path="/appointments/:id"
               render={ () =>
               <Appointment
                 service={this.state.service}
