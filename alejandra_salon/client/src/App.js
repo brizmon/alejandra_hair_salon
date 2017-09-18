@@ -28,6 +28,8 @@ class App extends Component {
       appt_time: '',
       hairstylist: 'oty',
       appt_id: undefined,
+      redirect: false,
+      currentPage: ''
     };
   };
 
@@ -77,9 +79,16 @@ class App extends Component {
     }).then(res => {
       console.log("in axios response")
       this.setState({
-        shouldFireRedirect: true,
+        redirect: true,
+        currentPage: 'appointments'
       });
-    }).catch(err => {
+    })
+    .then(res=>{
+      this.setState({
+        redirect: false
+      })
+    })
+    .catch(err => {
       console.log(err);
     });
   }
@@ -115,6 +124,7 @@ class App extends Component {
           <div className="main">
           <Header />
           <Switch>
+            {this.state.redirect ? (<Redirect to={`/${this.state.currentPage}`}/>) : null} {/*handles the redirects */}
             <Route exact path="/" component={Home} />
             <Route
             exact
@@ -127,7 +137,6 @@ class App extends Component {
                   handleInputChange={this.handleInputChange}
                   setApptTime={this.setApptTime}
                   handleApptSubmit={this.handleApptSubmit}
-                  shouldFireRedirect={this.state.shouldFireRedirect}
             />} />
             <Route
             exact
@@ -136,7 +145,6 @@ class App extends Component {
                 <AppointmentList
                   grabApptId={this.grabApptId}
                   appt_id={this.state.appt_id}
-                  shouldFireRedirect={this.state.shouldFireRedirect}
             />} />
             {/* <Route exact path="/appointments" component={AppointmentList} /> */}
             <Route
