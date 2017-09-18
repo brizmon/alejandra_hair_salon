@@ -8,7 +8,9 @@ import { Redirect } from 'react-router';
 import moment from 'moment';
 
 import Home from './components/Home';
-import About from './components/About';
+import HoursLocation from './components/Hours_location';
+import Team from './components/Team';
+import Services from './components/Services';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AppointmentForm from './components/Appointment_form';
@@ -115,7 +117,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route
             exact
-            path="/book"
+            path="/appointments"
             render={ () => 
                 <AppointmentForm
                   service={this.state.service}
@@ -128,18 +130,17 @@ class App extends Component {
             />} />
             <Route
             exact
-            path="/appointments"
+            path="/appointments-list"
             render={ () => 
                 <AppointmentList
                   grabApptId={this.grabApptId}
                   appt_id={this.state.appt_id}
                   shouldFireRedirect={this.state.shouldFireRedirect}
             />} />
-            <Route exact path="/about" component={About} />
             {/* <Route exact path="/appointments" component={AppointmentList} /> */}
             <Route
               exact 
-              path="/appointments/:id"
+              path="/appointments-list/:id"
               render={ () =>
               <Appointment
                 service={this.state.service}
@@ -152,6 +153,9 @@ class App extends Component {
                 handleDelete={this.handleDelete}
                 shouldFireRedirect={this.state.shouldFireRedirect}
               />}/>
+              <Route exact path="/hours-location" component={HoursLocation} />
+              <Route exact path="/team" component={Team} />
+              <Route exact path="/services" component={Services} />
           </Switch>
           </div>
         </div>
