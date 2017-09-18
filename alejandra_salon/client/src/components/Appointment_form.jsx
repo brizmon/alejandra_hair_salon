@@ -3,12 +3,10 @@ import { Redirect } from 'react-router';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
 import * as Datetime from 'react-datetime';
-import Header from './Header';
 
 const AppointmentForm = props => {
     return(
         <div>
-            <Header />
             <div className="container">
                 <div className="row">
                     <form onSubmit={props.handleApptSubmit} className="col s12">

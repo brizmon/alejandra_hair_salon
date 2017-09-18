@@ -1,11 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Header from './Header';
 
 const Services = () => {
     return (
         <div>
-            <Header />
             <div className="container">
                 <h1 className="center-align">Services</h1>
                 <div className="row">
