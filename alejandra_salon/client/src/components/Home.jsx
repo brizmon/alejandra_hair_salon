@@ -6,7 +6,9 @@ import {Link} from 'react-router-dom';
 const Home = () => {
     return (
         <div>
-            <h1>Home</h1>
+            <div className="container">
+                <h1 className="center-align">Home</h1>
+            </div>
         </div>
     )
 }

@@ -21,9 +21,9 @@ const Header = (props) => {
                         <li><a className="dropdown-button" href="" data-activates="dropdown1">Appointments</a></li>
                         <li><a className="dropdown-button" href="" data-activates="dropdown2">About</a></li>
                         <li><Link Link to="/services">Services</Link></li>
-                        <li><Link Link to="https://www.instagram.com/alejandraunisex/"><i className="fa fa-instagram fa-lg" aria-hidden="true"></i></Link></li>
-                        <li><Link Link to="https://www.facebook.com/alejandrabeautysalon"><i className="fa fa-facebook fa-lg" aria-hidden="true"></i></Link></li>
-                        <li><Link Link to="https://www.facebook.com/alejandrabeautysalon"><i className="fa fa-pinterest fa-lg" aria-hidden="true"></i></Link></li>
+                        <li><a href="https://www.instagram.com/alejandraunisex/" target="_blank"><i className="fa fa-instagram fa-lg" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.facebook.com/alejandrabeautysalon" target="_blank"><i className="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.facebook.com/alejandrabeautysalon" target="_blank"><i className="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
                     </ul>
                     <ul className="side-nav" id="mobile-demo">
                         <li><a href="sass.html">Appointments</a></li>

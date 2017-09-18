@@ -31,25 +31,31 @@ class AppointmentForm extends Component {
                             onChange={this.props.handleInputChange}
                         /> */}
 
-                        <Datetime input={false} open={true} inputProps={this.props.inputProps} value={this.props.appt_time} onChange={this.props.setApptTime}/>
-                            
-                                <select className="pick-hairstylist" name="hairstylist" value={this.props.hairstylist} onChange={this.props.handleInputChange}>
+                                <select className="browser-default" name="hairstylist" value={this.props.hairstylist} onChange={this.props.handleInputChange}>
+                                    <option value="Choose hairstylist" disabled >Choose hairstylist</option>
                                     <option value="alexa">Alexa</option>
                                     <option value="oty">Oty</option>
                                     <option value="gloria">Gloria</option>
                                 </select>
 
-                            <div className="input-field col s12 m6">
+                        <Datetime input={false} open={true} inputProps={this.props.inputProps} value={this.props.appt_time} onChange={this.props.setApptTime}/>
+
+                                
+                                    
+                               
+
+                            {/* <div className="input-field col s12 m6">
                                 <select className="icons">
-                                <option value="" disabled selected>Choose your option</option>
-                                <option value="" data-icon="../img/alexa.jpg" className="left circle">example 1</option>
-                                <option value="" data-icon="../img/alexa.jpg" className="left circle">example 2</option>
-                                <option value="" data-icon="../img/alexa.jpg" className="left circle">example 3</option>
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="" data-icon="../img/alexa.jpg" className="left circle">example 1</option>
+                                    <option value="" data-icon="../img/alexa.jpg" className="left circle">example 2</option>
+                                    <option value="" data-icon="../img/alexa.jpg" className="left circle">example 3</option>
                                 </select>
                                 <label>Images in select</label>
-                            </div>
-                        
-                        <input type="submit" value="Book" />
+                            </div> */}
+                        <div className="center-align">
+                            <button type="submit" value="Book">Book</button>
+                        </div>
                     </form>
                 </div>
             </div>

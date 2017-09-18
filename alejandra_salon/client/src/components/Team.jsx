@@ -4,7 +4,9 @@ import {Link} from 'react-router-dom';
 const Team = () => {
     return (
         <div>
-            <h1>Team</h1>
+            <div className="container">
+                <h1 className="center-align">Team</h1>
+            </div>
         </div>
     )
 }
