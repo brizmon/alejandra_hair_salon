@@ -26,7 +26,7 @@ class App extends Component {
       shouldFireRedirect: false,
       service: '',
       appt_time: '',
-      hairstylist: 'oty',
+      hairstylist: 'Choose hairstylist',
       appt_id: undefined,
       redirect: false,
       currentPage: ''
