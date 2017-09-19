@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   # post "/appointment" => "appointments#create" #this is another way to create a route it's more specifc and will only give me the create method
 
   resources :appointments
+
+  root to: "root#index"
 end
