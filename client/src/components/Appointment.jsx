@@ -90,7 +90,7 @@ class Appointment extends Component{
                                         type="text"
                                         name="service"
                                         placeholder={appointmentData.service}
-                                        value={this.props.service}
+                                        value={appointmentData.service} //change from this.props.service
                                         onChange={this.props.handleInputChange}
                                     />
                                 </div>
