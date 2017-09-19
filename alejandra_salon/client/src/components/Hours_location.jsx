@@ -17,6 +17,16 @@ const HoursLocation = () => {
                         <h3>347-656-5515</h3>
                         <h3>hi@alejandraunisex.com</h3>
                     </div>
+                    <div className="col s12 m6 l6 offset-m6">
+                        <h1>HOURS</h1>
+                        <h3>MONDAY - 9am – 9pm</h3>
+                        <h3>TUESDAY - 9am – 9pm</h3>
+                        <h3>WEDNESDAY - 9am – 9pm</h3>
+                        <h3>THURSDAY - 9am – 9pm</h3>
+                        <h3>FRIDAY - 9am – 9pm</h3>
+                        <h3>SATURDAY - 9am – 9pm</h3>
+                        <h3>SUNDAY - 11am – 7pm</h3>
+                    </div>
                 </div>
             </div>
         </div>
