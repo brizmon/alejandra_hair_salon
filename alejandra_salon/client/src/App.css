@@ -39,6 +39,12 @@ h2 {
   font-family: 'proxima_novaregular';
   font-size: 17px;
 }
+h3 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: 'proxima_novaregular';
+  font-size: 13px;
+}
 input, select, textarea{
   color: white;
   font-size: 35px !important;
@@ -59,12 +65,12 @@ input:-webkit-autofill {
 nav {
   height: 110px;
 }
-.logo {
+.brand-logo {
   max-width: 25%;
   margin-top: 35px;
   margin-left: 60px;
 }
-.logo:hover {
+.brand-logo:hover {
   fill: rgba(253,247,247,.7);
 }
 nav ul a {
@@ -132,3 +138,37 @@ select.browser-default{
   font-size: 19px;
   letter-spacing: 3px;
 }
+
+/******************** PARALLAX ********************/
+.parallax img {
+  max-width: 100%;
+}
+
+/******************** iFRAME ********************/
+iframe{
+  display: block;
+  margin: 0 auto;
+}
+.justify {
+  text-align: right;
+}
+
+/******************** MEDIA QUERIES ********************/
+@media only screen and (max-width: 990px) {
+  .brand-logo {
+    margin-left: 0;
+    max-width: 55%;
+    margin-top: 15px;
+  }
+  .rdtPicker {
+    width: 350px !important;
+    margin: 0 auto;
+  }
+  select.browser-default {
+    font-size: 12px !important;
+    width: 52%;
+    letter-spacing: 2px;
+  }
+}
+
+
