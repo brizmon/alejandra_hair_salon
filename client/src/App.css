@@ -169,6 +169,9 @@ iframe{
     width: 52%;
     letter-spacing: 2px;
   }
+  .parallax img {
+    max-width: 200%;
+  }
 }
 
 
